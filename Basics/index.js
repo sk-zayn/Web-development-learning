@@ -133,7 +133,3 @@ for (let i = 0; i<itemPrice.length; i++){
 };
 console.log(itemPrice);
 console.log(discountedPrice);
-
-
-
-
