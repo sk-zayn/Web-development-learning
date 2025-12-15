@@ -52,6 +52,7 @@ do {
 
 /*For of loop
 Syntax -> for (let iterator of iterable ) this will iterate over the iterable
+use on arrays and strings
 */
 
 let str = 'zainshaikh';
@@ -59,3 +60,17 @@ for (let i of str){
   console.log(i);
 }
 
+/*for in loop
+Syntax -> for (let iterator in iterable) this will iterate over each keys(only)
+use on objects and arrays
+*/
+
+let student = {
+  name : 'Zain',
+  age : 22,
+  add : 'Mumbra',
+  qualification : 'Graduate'
+};
+for (i in student){         // this will iterate over keys
+  console.log('keys =', i,'values =', student[i]); // this will print keys as well as values
+}
