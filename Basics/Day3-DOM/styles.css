@@ -1,0 +1,12 @@
+button{
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: white;
+  background-color: palevioletred;
+  cursor: pointer;
+}
+.buttoncover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
