@@ -5,6 +5,7 @@ let message = document.querySelector('.message')
 let newGame = document.querySelector('#new-game')
 let main = document.querySelector('.main')
 main.classList.remove('hide')
+let moveCount = 0;
 
 
 let playerO = true;
@@ -32,6 +33,9 @@ const enableBoxes = ()=>{
     box.disabled = false;
     box.textContent = ''
   };
+  moveCount = 0;
+  playerO = true;
+  main.classList.remove('hide')
 };
 let displayWinner = (winner)=>{
   message.textContent = `Congratulation Winner is ${winner}`
@@ -50,7 +54,9 @@ boxes.forEach((box) => {
       box.textContent = 'X';
       playerO = true
     }
+    moveCount++
     box.disabled = true
+
     checkWinner()
   });
 });
@@ -71,6 +77,12 @@ const checkWinner= ()=>{
         displayWinner(pos1)
       };
     };
+
+    if (moveCount === 9) {
+    message.textContent = "It's a Draw!";
+    main.classList.add('hide');
+    msgContainer.classList.remove('hide');
+  }
   };
 };
 
@@ -88,81 +100,4 @@ newGame.addEventListener('click',()=>{
 
 
 
-//--------------------------------------------------------CHAT GPT CODE------------------------------------------------------------------
-
-
-// const boxes = document.querySelectorAll(".box");
-// const resetBtn = document.getElementById("reset-btn");
-// const newGameBtn = document.getElementById("new-game");
-// const msgContainer = document.querySelector(".msg-container");
-// const message = document.querySelector(".message");
-// const main = document.querySelector(".main");
-
-// let currentPlayer = "O";
-// let gameOver = false;
-
-// const winningPatterns = [
-//   [0, 1, 2],
-//   [3, 4, 5],
-//   [6, 7, 8],
-//   [0, 3, 6],
-//   [1, 4, 7],
-//   [2, 5, 8],
-//   [0, 4, 8],
-//   [2, 4, 6],
-// ];
-
-// // 🔁 Reset / New Game
-// const resetGame = () => {
-//   currentPlayer = "O";
-//   gameOver = false;
-//   msgContainer.classList.add("hide");
-//   main.classList.remove("hide");
-
-//   boxes.forEach(box => {
-//     box.textContent = "";
-//     box.disabled = false;
-//   });
-// };
-
-// // 🏆 Show winner
-// const showWinner = (winner) => {
-//   message.textContent = `Congratulations! Winner is ${winner}`;
-//   msgContainer.classList.remove("hide");
-//   main.classList.add("hide");
-//   gameOver = true;
-// };
-
-// // 🔍 Check winner
-// const checkWinner = () => {
-//   for (let pattern of winningPatterns) {
-//     const [a, b, c] = pattern;
-
-//     if (
-//       boxes[a].textContent &&
-//       boxes[a].textContent === boxes[b].textContent &&
-//       boxes[a].textContent === boxes[c].textContent
-//     ) {
-//       showWinner(boxes[a].textContent);
-//       return;
-//     }
-//   }
-// };
-
-// // 🎮 Box click
-// boxes.forEach(box => {
-//   box.addEventListener("click", () => {
-//     if (box.textContent || gameOver) return;
-
-//     box.textContent = currentPlayer;
-//     box.disabled = true;
-
-//     checkWinner();
-//     currentPlayer = currentPlayer === "O" ? "X" : "O";
-//   });
-// });
-
-// // 🔘 Buttons
-// resetBtn.addEventListener("click", resetGame);
-// newGameBtn.addEventListener("click", resetGame);
-
+// --------------------------------------------------------CHAT GPT CODE---------------------------------------------------------------//
